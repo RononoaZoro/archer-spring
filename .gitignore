@@ -1,0 +1,12 @@
+# Project exclude paths
+/.gradle/
+/build/
+/custom-spring/build/
+/custom-spring/build/classes/java/main/
+/spring-guides/build/
+/spring-guides/build/classes/java/main/
+/spring-guides/build/classes/java/test/
+.idea
+*.iml
+/target/*
+/**/target/

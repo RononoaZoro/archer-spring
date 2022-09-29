@@ -1,0 +1,82 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+}
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'maven-publish'
+
+    group 'com.luo'
+    version '1.0-SNAPSHOT'
+
+    ext {
+        //spring libs
+        springVersion = '5.3.23'
+
+        //logging libs
+        slf4jVersion = '1.7.25'
+        logbackVersion = '1.2.3'
+
+        // lombok jdk 17 兼容版本 最低 1.18.20
+        lombokVersion = '1.18.20'
+
+        spring = [
+                context: "org.springframework:spring-context:$springVersion",
+        ]
+
+        other = [
+                slf4jJcl       : "org.slf4j:jcl-over-slf4j:$slf4jVersion",
+                logback        : "ch.qos.logback:logback-classic:$logbackVersion",
+                lombok         : "org.projectlombok:lombok:$lombokVersion"
+        ]
+    }
+
+    repositories {
+        maven { url "file://D:/developer/repository/" }
+        mavenCentral()
+    }
+
+    dependencies {
+        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+//        compileOnly "org.projectlombok:lombok:$lombokVersion"
+//        annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+
+    task sourceJar(type: Jar) {
+        from sourceSets.main.allJava
+        archiveClassifier = "sources"
+    }
+
+    publishing {
+        publications {
+            jar(MavenPublication) {
+                from components.java
+                artifact sourceJar
+            }
+        }
+
+        // 未指定就发布到默认文件夹 本机是 C:\Users\Administrator\.m2\repository，
+        // 指定就发布到指定文件夹 本机是 file://D:/developer/repository/
+        repositories {
+            maven {
+                url = layout.buildDirectory.dir("file://D:/developer/repository/")
+            }
+        }
+    }
+
+}
+
+
+//定义任务打印gradle下载的jar包位置
+task showConfigurations {
+    doLast {
+        configurations.configureEach({
+            println it
+        })
+    }
+}
