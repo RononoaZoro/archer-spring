@@ -1,6 +1,9 @@
 package com.luo.spring.guides.helloworld.common;
 
 import lombok.Data;
+import lombok.ToString;
+
+import java.util.List;
 
 /**
  * @author : archer
@@ -8,8 +11,11 @@ import lombok.Data;
  * @description :
  */
 @Data
+@ToString
 public class TestBean {
     private String testStr;
+
+    private List<String> list;
 
     public TestBean() {
         this.testStr = "helloworld";
