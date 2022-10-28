@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
-<!--    <beans profile="dev">-->
 
-<!--    </beans>-->
-<!--    <beans profile="prod">-->
-
-<!--    </beans>-->
-
-    <bean id="testBean" class="com.luo.spring.guides.helloworld.common.TestBean">
-        <meta key="testStr" value="aaaaa"/>
+    <bean id="car" class="com.luo.spring.guides.helloworld.beanloading.factorybean.CarFactoryBean">
+        <property name="carInfo" value="超级跑车,400,2000000"/>
     </bean>
 
 </beans>

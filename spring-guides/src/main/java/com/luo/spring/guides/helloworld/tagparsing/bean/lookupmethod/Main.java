@@ -1,4 +1,4 @@
-package com.luo.spring.guides.helloworld.lookupmethod;
+package com.luo.spring.guides.helloworld.tagparsing.bean.lookupmethod;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -11,7 +11,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Main {
 
     public static void main(String[] args) {
-        ApplicationContext bf = new ClassPathXmlApplicationContext("bean/lookup/lookupTest.xml");
+        ApplicationContext bf = new ClassPathXmlApplicationContext("tagparsing/bean/lookup/lookupTest.xml");
         GetBeanTest test = (GetBeanTest) bf.getBean("getBeanTest");
         test.showMe();
     }

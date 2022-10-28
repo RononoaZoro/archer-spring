@@ -1,4 +1,4 @@
-package com.luo.spring.guides.helloworld.lookupmethod;
+package com.luo.spring.guides.helloworld.tagparsing.bean.lookupmethod;
 
 /**
  * @author : archer

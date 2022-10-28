@@ -6,6 +6,10 @@ import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.lang.Nullable;
+import org.springframework.util.ClassUtils;
+import org.springframework.util.StringUtils;
+
+import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -29,11 +33,41 @@ public class BeanFactoryTest {
     }
 
     @Test
-    public void test(){
+    public void test() {
         this.inComment = false;
         String line = "<!-- 321321321";
         String s = consumeCommentTokens(line);
         System.out.println();
+    }
+
+    @Test
+    public void testStringUtils() {
+        //%20是地址的空格符,因为地址不能包含空格。它是序列化后的空格符。
+        String replace = StringUtils.replace("a b", " ", "%20");
+        System.out.println(replace);
+    }
+
+    @Test
+    public void testClassUtils() throws IOException {
+        ClassLoader defaultClassLoader = ClassUtils.getDefaultClassLoader();
+        //file:/D:/justforfun/archer-spring/spring-guides/build/resources/test/beanfactory-test.xml
+        String baseLocation = new ClassPathResource("beanfactory-test.xml").getURL().toString();
+        System.out.println();
+    }
+
+    @Test
+    public void isInstanceTest() throws ClassNotFoundException {
+
+        // get the Class instance using forName() method
+        Class beanFactoryTestClass = Class.forName("helloworld.BeanFactoryTest");
+        BeanFactoryTest beanFactoryTest = new BeanFactoryTest();
+
+        System.out.println("Class represented by c: "
+                + beanFactoryTestClass);
+
+        // c 是否是 myClass 的实例
+        System.out.println(beanFactoryTestClass.isInstance(beanFactoryTestClass));
+        System.out.println(beanFactoryTestClass.isInstance(beanFactoryTest));
     }
 
     private String consumeCommentTokens(String line) {
@@ -67,6 +101,7 @@ public class BeanFactoryTest {
 
     /**
      * Try to consume the {@link #START_COMMENT} token.
+     *
      * @see #commentToken(String, String, boolean)
      */
     private int startComment(String line) {
@@ -75,6 +110,7 @@ public class BeanFactoryTest {
 
     /**
      * Try to consume the {@link #END_COMMENT} token.
+     *
      * @see #commentToken(String, String, boolean)
      */
     private int endComment(String line) {
@@ -89,7 +125,7 @@ public class BeanFactoryTest {
      */
     private int commentToken(String line, String token, boolean inCommentIfPresent) {
         int index = line.indexOf(token);
-        if (index > - 1) {
+        if (index > -1) {
             this.inComment = inCommentIfPresent;
         }
         return (index == -1 ? index : index + token.length());

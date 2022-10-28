@@ -1,4 +1,4 @@
-package com.luo.spring.guides.helloworld.replacedmethod;
+package com.luo.spring.guides.helloworld.tagparsing.bean.replacedmethod;
 
 import org.springframework.beans.factory.support.MethodReplacer;
 

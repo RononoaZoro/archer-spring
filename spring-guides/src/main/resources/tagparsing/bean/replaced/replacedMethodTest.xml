@@ -5,11 +5,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="testChangeMethod" class="com.luo.spring.guides.helloworld.replacedmethod.TestChangeMethod">
+    <bean id="testChangeMethod" class="com.luo.spring.guides.helloworld.tagparsing.bean.replacedmethod.TestChangeMethod">
         <replaced-method name="changeMe" replacer="replacer"/>
     </bean>
 
-    <bean id="replacer" class="com.luo.spring.guides.helloworld.replacedmethod.TestMethodReplacer"/>
+    <bean id="replacer" class="com.luo.spring.guides.helloworld.tagparsing.bean.replacedmethod.TestMethodReplacer"/>
 
 
 </beans>

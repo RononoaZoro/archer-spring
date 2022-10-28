@@ -1,4 +1,4 @@
-package com.luo.spring.guides.helloworld.replacedmethod;
+package com.luo.spring.guides.helloworld.tagparsing.bean.replacedmethod;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -10,7 +10,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class Main {
     public static void main(String[] args) {
-        ApplicationContext bf = new ClassPathXmlApplicationContext("bean/replaced/replacedMethodTest.xml");
+        ApplicationContext bf = new ClassPathXmlApplicationContext("tagparsing/bean/replaced/replacedMethodTest.xml");
         TestChangeMethod test = (TestChangeMethod) bf.getBean("testChangeMethod");
         test.changeMe();
     }
