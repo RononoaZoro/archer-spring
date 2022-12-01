@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+<!--    <bean id="singer" class="com.luo.spring.guides.iocdi.domain.Singer" depends-on="guitar"-->
+<!--          c:message="I hope that someone gets my message in a bottle"/>-->
+<!--    <bean id="guitar" class="com.luo.spring.guides.iocdi.domain.Guitar"/>-->
+
+
+
+    <bean id="constructorConfusion"
+          class="com.luo.spring.guides.iocdi.xml.constructor.ConstructorConfusion">
+        <constructor-arg type="int">
+            <value>90</value>
+        </constructor-arg>
+    </bean>
+</beans>

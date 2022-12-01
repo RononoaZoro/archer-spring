@@ -1,1 +1,1 @@
-http\://www.xiaoluo.com/schema/user=com.luo.spring.guides.helloworld.tagparsing.customtag.MyNamespaceHandler
+http\://www.xiaoluo.com/schema/user=MyNamespaceHandler

@@ -1,5 +1,5 @@
 dependencies {
-    implementation spring.context, other.slf4jJcl, other.logback, dataSource.c3p0, dataSource.mysql
+    implementation spring.context, other.slf4jJcl, other.logback, dataSource.c3p0, dataSource.mysql, javax.javaxAnnotation
 // lombok，编译有效，打包无效
     compileOnly other.lombok
 // gradle 5.0以上版本注解处理不再compile classpath，需要增加 annotation processor path

@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="testBean" class="com.luo.spring.guides.helloworld.common.TestBean"/>
+    <bean id="testBean" class="com.luo.spring.guides.common.TestBean"/>
     <alias name="testBean" alias="testBean2"/>
 
 

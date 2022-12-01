@@ -1,6 +1,6 @@
 package helloworld;
 
-import com.luo.spring.guides.helloworld.common.TestBean;
+import com.luo.spring.guides.common.TestBean;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
