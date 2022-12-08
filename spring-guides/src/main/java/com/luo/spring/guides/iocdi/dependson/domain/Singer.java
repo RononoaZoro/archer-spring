@@ -1,6 +1,7 @@
 package com.luo.spring.guides.iocdi.dependson.domain;
 
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.DependsOn;
@@ -19,12 +20,14 @@ public class Singer implements ApplicationContextAware{
 		this.applicationContext = applicationContext;
 	}
 
+//	@Autowired //字段注入
 	private Guitar guitar;
 
 	public Singer(){
 	}
 
 	public void sing() {
+//		依赖查找
 		guitar =  applicationContext.getBean("gopher",Guitar.class);
 		guitar.sing();
 	}
