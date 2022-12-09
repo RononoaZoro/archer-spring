@@ -1,4 +1,5 @@
 rootProject.name = 'archer-spring'
 include 'spring-guides'
 include 'custom-spring'
+include 'spring-boot-guides'
 
