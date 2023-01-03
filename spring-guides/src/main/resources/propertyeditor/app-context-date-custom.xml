@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    两种方式等价-->
+<!--    1、使用自定义属性编辑器-->
+        <bean name="customEditorConfigurer"
+              class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+            <property name="customEditors">
+                <map>
+                    <entry key="java.util.Date">
+                        <bean class="com.luo.spring.guides.propertyeditor.custom.DatePropertyEditor">
+                            <property name="format" value="yyyy-MM-dd"/>
+                        </bean>
+                    </entry>
+                </map>
+            </property>
+        </bean>
+    <!--    2、使用 Spring 自带属性编辑器-->
+<!--    <bean id="customEditorConfigurer" class="org.springframework.beans.factory.config.CustomEditorConfigurer" >-->
+<!--        <property name="propertyEditorRegistrars">-->
+<!--            <list>-->
+<!--                <bean class="com.luo.spring.guides.propertyeditor.custom.DatePropertyEditorRegistrar"/>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+</beans>

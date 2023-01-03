@@ -1,0 +1,26 @@
+package com.luo.spring.guides.aop.pointcut.annotation;
+
+import com.luo.spring.guides.aop.pointcut.advice.SimpleAdvice;
+import com.luo.spring.guides.aop.pointcut.domain.Guitar;
+import org.springframework.aop.Advisor;
+import org.springframework.aop.framework.ProxyFactory;
+import org.springframework.aop.support.DefaultPointcutAdvisor;
+import org.springframework.aop.support.annotation.AnnotationMatchingPointcut;
+
+public class Main {
+    public static void main(String... args) {
+        Guitarist johnMayer = new Guitarist();
+
+        AnnotationMatchingPointcut pc = AnnotationMatchingPointcut
+            .forMethodAnnotation(AdviceRequired.class);
+        Advisor advisor = new DefaultPointcutAdvisor(pc, new SimpleAdvice());
+
+        ProxyFactory pf = new ProxyFactory();
+        pf.setTarget(johnMayer);
+        pf.addAdvisor(advisor);
+        Guitarist proxy = (Guitarist) pf.getProxy();
+
+        proxy.sing(new Guitar());
+        proxy.rest();
+    }
+}

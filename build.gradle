@@ -26,12 +26,16 @@ allprojects {
 
         //misc
         groovyVersion = '2.4.5'
+        aspectjVersion = '1.8.13'
 
         //boot
         bootVersion = '2.0.6.RELEASE'
 
         spring = [
                 context: "org.springframework:spring-context:$springVersion",
+                webmvc : "org.springframework:spring-webmvc:$springVersion",
+                aop    : "org.springframework:spring-aop:$springVersion",
+                aspects: "org.springframework:spring-aspects:$springVersion",
         ]
 
         dataSource = [
@@ -46,8 +50,10 @@ allprojects {
         ]
 
         misc = [
-                inject: "javax.inject:javax.inject:1",
-                groovy: "org.codehaus.groovy:groovy-all:$groovyVersion",
+                inject       : "javax.inject:javax.inject:1",
+                groovy       : "org.codehaus.groovy:groovy-all:$groovyVersion",
+                aspectjweaver: "org.aspectj:aspectjweaver:$aspectjVersion",
+                aspectjrt    : "org.aspectj:aspectjrt:$aspectjVersion",
         ]
 
         boot = [

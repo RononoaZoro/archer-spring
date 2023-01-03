@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+      xmlns:aop="http://www.springframework.org/schema/aop"
+      xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/aop
+          http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <aop:config proxy-target-class="true">
+        <aop:pointcut id="singExecution"
+            expression="execution(* com.luo.spring.guides.aop.namespace.domain..sing*(com.luo.spring.guides.aop.namespace.domain.Guitar))"/>
+
+        <aop:aspect ref="advice">
+            <aop:before pointcut-ref="singExecution"
+                method="simpleBeforeAdvice"/>
+        </aop:aspect>
+    </aop:config>
+
+    <bean id="advice"
+          class="com.luo.spring.guides.aop.namespace.advise.SimpleAdvice"/>
+
+    <bean id="johnMayer"
+          class="com.luo.spring.guides.aop.namespace.domain.GrammyGuitarist"/>
+
+    <bean id="documentarist"
+          class="com.luo.spring.guides.aop.namespace.domain.NewDocumentarist"
+          p:guitarist-ref="johnMayer"/>
+</beans>
