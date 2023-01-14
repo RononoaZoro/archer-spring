@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="testBean" class="com.luo.spring.guides.post.processor.beanfactory.PostProcessorTestBean">
+        <property name="name">
+            <value>${bean.name}</value>
+        </property>
+    </bean>
+
+    <bean id="testBeanHandler" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>postprocessor/bean.properties</value>
+            </list>
+        </property>
+        <property name="fileEncoding">
+            <value>utf-8</value>
+        </property>
+    </bean>
+
+</beans>

@@ -36,6 +36,8 @@ allprojects {
                 webmvc : "org.springframework:spring-webmvc:$springVersion",
                 aop    : "org.springframework:spring-aop:$springVersion",
                 aspects: "org.springframework:spring-aspects:$springVersion",
+                tx     : "org.springframework:spring-tx:$springVersion",
+                jdbc   : "org.springframework:spring-jdbc:$springVersion",
         ]
 
         dataSource = [

@@ -1,5 +1,5 @@
 dependencies {
-    implementation spring.context, other.slf4jJcl, other.logback, dataSource.c3p0
+    implementation spring.context, spring.tx, spring.jdbc, other.slf4jJcl, other.logback, dataSource.c3p0
     implementation dataSource.mysql, javax.javaxAnnotation, misc.inject, misc.groovy
     implementation misc.aspectjweaver, misc.aspectjrt
 // lombok，编译有效，打包无效
