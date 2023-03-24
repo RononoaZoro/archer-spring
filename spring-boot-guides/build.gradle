@@ -1,0 +1,21 @@
+dependencies {
+    implementation spring.context, other.slf4jJcl, other.logback
+    implementation boot.starterWeb, boot.starterThyme
+// lombok，编译有效，打包无效
+    compileOnly other.lombok
+// gradle 5.0以上版本注解处理不再compile classpath，需要增加 annotation processor path
+    annotationProcessor other.lombok
+}
+
+jar {
+    manifest.attributes["Implementation-Title"] = project.name
+    manifest.attributes["Implementation-Version"] = project.version
+    manifest.attributes["Created-By"] = creator
+    manifest {
+        attributes(
+                "Specification-Title": "spring-boot-guides",
+                "Main-Class": "com.luo.spring.guides.HelloWorld",
+//                "Class-Path": configurations.compile.collect { it.getName() }.join(' ')
+        )
+    }
+}

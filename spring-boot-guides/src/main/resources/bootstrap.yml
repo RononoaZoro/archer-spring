@@ -1,0 +1,13 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: spring-boot-guides
+  profiles:
+    active: test
+  main:
+    allow-bean-definition-overriding: true
+
+spring.banner.location: banner.txt
+
