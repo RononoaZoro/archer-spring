@@ -8,6 +8,11 @@ spring:
     active: test
   main:
     allow-bean-definition-overriding: true
+  banner:
+    location: banner.txt
+  thymeleaf:
+      prefix: "classpath:/template/"
+      suffix: ".html"
 
-spring.banner.location: banner.txt
+
 
